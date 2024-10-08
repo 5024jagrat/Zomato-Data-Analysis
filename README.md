@@ -1,72 +1,62 @@
-# R_Project: Zomato Analysis Project
+Python_Project: Zomato Analysis Project
+Overview
+This project involves the analysis of Zomato restaurant data using Streamlit and Power BI. The provided Python code generates an interactive web application to visualize and explore the dataset. Leveraging the Streamlit, pandas, and Plotly libraries, the app offers an engaging user interface for exploring relationships between different variables. The application provides various visualizations such as bar charts, 3D scatter plots, clustered bar charts, heatmaps, line charts, scatter plots, and a 3D plot using Plotly.
 
-## Overview
+Dependencies
+Ensure that you have the following Python packages installed before running the application:
 
-This project involves the analysis of `Zomato` restaurant data using `R Shiny` and `Power BI`. The provided R Shiny code generates an interactive web application to visualize and explore the dataset. Leveraging the `shiny`, `dplyr`, and `plotly` packages, the app offers an engaging user interface for exploring relationships between different variables. The application offers various visualizations such as bar charts, 3D scatter plots, clustered bar charts, heatmaps, line charts, scatter plots, and an RGL 3D plot.
+streamlit
+pandas
+plotly
+scikit-learn
+matplotlib
+You can install these packages using the following command:
 
-## Dependencies
+bash
+Copy code
+pip install streamlit pandas plotly scikit-learn matplotlib
+Data Source
+The project uses Zomato restaurant data, which is loaded from a CSV file. Make sure the CSV file (data.csv) is available at the specified location in the code. The data is cleaned and processed for visualization.
 
-Make sure you have the following R packages installed before running the application:
-
-- shiny
-- dplyr
-- plotly
-- shinythemes
-- rgl
-- rpart
-- shinyjs
-
-You can install these packages using the following commands:
-
-```R
-install.packages(c("shiny", "dplyr", "plotly", "shinythemes", "rgl", "rpart", "shinyjs"))
-```
-
-
-## Data Source
-
-The project uses Zomato restaurant data, which is loaded from a CSV file. Ensure that the CSV file (`data.csv`) is available at the specified location in the code. The data is cleaned and processed to prepare it for visualization.
-
-```R
+python
+Copy code
 # Load Zomato data
-zomato_data <- read.csv("E:/R/data.csv", stringsAsFactors = FALSE)
+import pandas as pd
+zomato_data = pd.read_csv("E:/Python/data.csv")
+Data Cleaning
+(Include the data cleaning steps here as per your code)
 
-# Data Cleaning
-# ... (data cleaning steps)
-```
+User Interface (UI)
+The Streamlit web application has a user-friendly interface with the following features:
 
-## User Interface (UI)
+Dropdowns for selecting X-Axis, Y-Axis, and Z-Axis data attributes.
+Numeric input fields for specifying city_id, average_cost_for_two, price_range, aggregate_rating, votes, and photo_count.
+A "Predict" button to perform predictions using a pre-trained random forest model.
+Different tabs for various visualizations, such as bar charts, 3D scatter plots, clustered bar charts, heatmaps, line charts, scatter plots, and 3D visualizations using Plotly.
+Server (Backend)
+The server-side code contains functions to render various types of plots based on user inputs. Additionally, it includes an event handler for the "Predict" button, which utilizes a pre-trained random forest model to make predictions based on user input.
 
-The Shiny web application has a user-friendly interface with the following features:
+How to Run
+To run the Zomato Analysis Python application, execute the following command in the terminal:
 
-- X-Axis, Y-Axis, and Z-Axis dropdowns for selecting data attributes.
-- Numeric input fields for specifying city_id, average_cost_for_two, price_range, aggregate_rating, votes, and photo_count.
-- Predict button to perform predictions using a random forest model.
-- Tabs for different types of visualizations, including bar charts, 3D scatter plots, clustered bar charts, heatmaps, line charts, scatter plots, and an RGL 3D plot.
+bash
+Copy code
+streamlit run path_to_directory_containing_code/app.py
+Replace "path_to_directory_containing_code" with the actual path to the directory where your code is saved.
 
-## Server
+Predictions
+The application allows users to input values for city_id, average_cost_for_two, price_range, aggregate_rating, votes, and photo_count and click the "Predict" button to obtain predictions for aggregate_rating. Ensure that the pre-trained random forest model file is loaded before running the application.
 
-The server code contains functions to render various types of plots based on user inputs. Additionally, it includes an event handler for the "Predict" button, which utilizes a pre-trained random forest model (`model`) to make predictions based on user input.
+Here’s how to load the model in Python:
 
-## How to Run
+python
+Copy code
+import joblib
 
-To run the Zomato Analysis Shiny application, execute the following code in R:
+# Load the pre-trained model
+model = joblib.load("E:/Python/ml_model.pkl")
+Make sure that the ml_model.pkl file contains the pre-trained random forest model.
 
-```R
-shiny::runApp("path_to_directory_containing_code")
-```
-
-Replace "path_to_directory_containing_code" with the actual path to the directory where the code is saved.
-
-## Predictions
-
-The application allows users to input values for city_id, average_cost_for_two, price_range, aggregate_rating, votes, and photo_count and click the "Predict" button to obtain predictions for aggregate rating. Note that a pre-trained random forest model (`model`) is required for this functionality.
-
-Ensure that the "ml.r" file containing the model training code is sourced before running the Shiny application:
-
-```R
-source("E:/R/ml.r")
-```
 
 ## Screen Shots
 ![Screenshot 2023-12-09 110415](https://github.com/Mehul1611/R_Project/assets/111687116/42ec1f63-2000-4d81-af3d-c3e77ca08433)
